@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useTheme } from '@mui/material/styles'
 
-import { Routes, Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   XAxis,
   YAxis,
@@ -16,10 +16,10 @@ import { useQuery } from '@apollo/client'
 import { MARKET_AGGREGATES } from '../../graphql/marketQueries'
 import { getTimeStampFromUnix } from '../../util/getTimeStampFromUnix';
 import { createData } from '../../util/generateData';
+import { findDomain } from '../../util/findDomain';
 
-export default function Chart() {
+export default function TickerChart() {
   const { ticker } = useParams();
-  const { multiplier } = useParams();
   const theme = useTheme()
 
   const { loading, error, data } = useQuery(MARKET_AGGREGATES, {
@@ -27,28 +27,13 @@ export default function Chart() {
       tickerSymbol: ticker?.split(":")[1],
       multiplier: 1,
       timespan: 'minute',
-      from: '2020-06-21',
-      to: '2022-06-16',
+      from: '2022-06-01',
+      to: '2022-06-20',
     },
   })
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
-
-  const findDomain = (marketAggregates: any) => {
-    let min = Infinity, max = -Infinity
-    for(let i = 0; i < marketAggregates.length; i ++) {
-      const aggregateWindow = marketAggregates[i]
-      const measurement = aggregateWindow.c
-      if (measurement < min) min = measurement
-      if (measurement > max) max = measurement
-    }
-    if (min > Infinity || max < -Infinity) {
-      return [0, 1000]
-    } else {
-      return [min, max]
-    }
-  }
 
   const dataSet = []
   const stockAggregates = data.marketAggregates.results
@@ -83,7 +68,7 @@ export default function Chart() {
           </XAxis>
           <YAxis dataKey="c" type="number" domain={findDomain(stockAggregates)} >
             <Label
-              value="APPL"
+              value="AAPL"
               angle={-90}
               position="left"
               dy="-10"

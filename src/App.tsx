@@ -1,10 +1,11 @@
 import { gql, useQuery } from '@apollo/client'
 import React from 'react'
 import './App.css'
-import TickerProfilePage from './pages/TickerProfilePage'
+import TickerDetailsPage from './pages/TickerDetailsPage'
 import { Routes, Route, useParams, BrowserRouter } from 'react-router-dom'
-import Chart from './components/dashboard/Chart'
-import Dashboard from './components/dashboard/Dashboard'
+import TickerChart from './components/ticker/TickerChart'
+import Drawer from './components/shared/Drawer'
+// import Ticker from './components/ticker/Ticker'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         {/* <Route path="/details" element={<TickerProfilePage />}/>
         <Route path=":ticker" element={<Dashboard />} /> */}
         <Route path="ticker" />
-        <Route path=":ticker" element={<TickerProfilePage />} />
+        <Route path=":ticker" element={<Drawer />} />
       </Routes>
     </BrowserRouter>
   )
