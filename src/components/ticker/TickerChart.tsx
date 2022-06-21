@@ -26,8 +26,8 @@ export default function TickerChart() {
     variables: {
       tickerSymbol: ticker?.split(":")[1],
       multiplier: 1,
-      timespan: 'minute',
-      from: '2022-06-01',
+      timespan: 'hour',
+      from: '2022-05-20',
       to: '2022-06-20',
     },
   })

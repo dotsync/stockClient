@@ -8,6 +8,7 @@ import {
   InMemoryCache,
   ApolloProvider
 } from '@apollo/client'
+import CustomDrawer from './shared/CustomDrawer'
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
@@ -21,7 +22,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <CustomDrawer />
     </ApolloProvider>
   </React.StrictMode>,
 )

@@ -14,8 +14,9 @@ import Link from '@mui/material/Link'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import NotificationsIcon from '@mui/icons-material/Notifications'
-import { mainListItems, secondaryListItems } from '../ticker/listItems'
-import TickerDetailsPage from '../../pages/TickerDetailsPage'
+import { mainListItems, secondaryListItems } from './listItems'
+import TickerDetailsPage from '../pages/TickerDetailsPage'
+import App from '../App'
 
 function Copyright(props: any) {
   return (
@@ -164,7 +165,7 @@ function DrawerContent(ticker: any) {
           }}
         >
           <Toolbar />
-          <TickerDetailsPage />
+          <App />
         </Box>
       </Box>
     </ThemeProvider>
