@@ -43,7 +43,7 @@ export default function TickerChart() {
     // c - The close price for the symbol in the given time period.
     const closePrice = aggregateWindow.c
     const entry = createData(
-      getTimeStampFromUnix(aggregateWindow.t).date.monthAndYear,
+      getTimeStampFromUnix(aggregateWindow.t).date.dayAndMonth,
       closePrice,
     )
     dataSet.push(entry)
@@ -62,17 +62,17 @@ export default function TickerChart() {
             bottom: 30,
           }}
         >
-          <CartesianGrid strokeDasharray="2 2" />
+          <CartesianGrid strokeDasharray="1 1" />
           <XAxis dataKey="time">
-            <Label value="Date" position="bottom" />
+            {/* <Label value={ticker?.split(":")[1]} position="bottom" /> */}
           </XAxis>
           <YAxis dataKey="c" type="number" domain={findDomain(stockAggregates)} >
-            <Label
-              value="AAPL"
+            {/* <Label
+              value={ticker?.split(":")[1]}
               angle={-90}
               position="left"
               dy="-10"
-            />
+            /> */}
           </YAxis>
           {/* <Tooltip content={<CustomTooltip payload={tempData} />} /> */}
           <Area
