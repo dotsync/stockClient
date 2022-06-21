@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import Title from './Title';
+import TickerChartTitle from './TickerChartTitle';
 
 function preventDefault(event: React.MouseEvent) {
   event.preventDefault();
@@ -10,7 +10,7 @@ function preventDefault(event: React.MouseEvent) {
 export default function TickerDetails() {
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
+      <TickerChartTitle>Recent Deposits</TickerChartTitle>
       <Typography component="p" variant="h4">
         $3,024.00
       </Typography>

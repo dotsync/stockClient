@@ -11,7 +11,7 @@ import {
   CartesianGrid,
   Area,
 } from 'recharts'
-import Title from './Title'
+import TickerChartTitle from './TickerChartTitle'
 import { useQuery } from '@apollo/client'
 import { MARKET_AGGREGATES } from '../../graphql/marketQueries'
 import { getTimeStampFromUnix } from '../../util/getTimeStampFromUnix';
@@ -51,7 +51,7 @@ export default function TickerChart() {
 
   return data ? (
     <React.Fragment>
-      <Title>Today</Title>
+      <TickerChartTitle>{ticker?.split(":")[1]}</TickerChartTitle>
       <ResponsiveContainer >
       <AreaChart
           data={dataSet}

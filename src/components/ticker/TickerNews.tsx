@@ -5,7 +5,7 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import Title from './Title'
+import TickerChartTitle from './TickerChartTitle'
 import { gql, useQuery } from '@apollo/client'
 import { Article } from '../../graphql/types/Article'
 
@@ -49,7 +49,7 @@ export default function TickerNews() {
 
   return (
     <React.Fragment>
-      <Title>News</Title>
+      <TickerChartTitle>News</TickerChartTitle>
       <Table size="small">
         <TableHead>
           <TableRow>

@@ -2,7 +2,7 @@ import { Copyright } from '@mui/icons-material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Deposits from './Deposits';
+import Deposits from './TickerDetails';
 import TickerChart from './TickerChart';
 import TickerNews from './TickerNews';
 
